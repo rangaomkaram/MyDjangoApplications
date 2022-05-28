@@ -32,7 +32,8 @@ def Project(request,pk):
 
 def englishpage(request):
     name = "Ranga"
-    context = {'name':name}
+    age = 26
+    context = {'name':name,'age':age}
     return render(request,'projectweb/englishphrases.html',context)
 
 # Create your views here.
