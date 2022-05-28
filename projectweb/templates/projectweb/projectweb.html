@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+
+     {% block content %}
+    <h1> Project Django to render</h1>
+    <h1>Django Learning</h1>
+    <p> 
+        Django is a widely-used Python web application framework with a "batteries-included" philosophy. 
+        The principle behind batteries-included is that the common functionality for building web applications should come with the framework instead of as separate libraries.
+    </p>
+<H2>
+    Data Science and Machine Learning Models to learn
+</H2>
+     <p>
+        (𝟭) 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝗰𝗲 𝗼𝗻 𝗖𝗼𝗹𝗹𝗶𝗻𝗲𝗮𝗿 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀
+<br/>
+❗Don't trust variable importance from random forest blindly. The variable importance of a feature is increased whenever the model splits on the node.
+<br/> When two features are collinear, the variable importance of the features becomes diluted.
+
+⭐ The better approach is to remove collinearity with variable selection using Pearson/Spearman correlation, VIF, or Lasso regression. Then, you can use the random forest or any other tree-based models to get the final model and interpret the variable importance of the features.
+<br/>
+<br/>
+(𝟮) 𝗥𝗮𝗻𝗱𝗼𝗺 𝗙𝗼𝗿𝗲𝘀𝘁 (𝗥𝗙) 𝗼𝗻 𝗖𝗼𝗻𝘁𝗶𝗻𝘂𝗼𝘂𝘀 𝗧𝗮𝗿𝗴𝗲𝘁 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲
+<br/>
+❗If you are using RF or other tree-based models (e.g. XGboost), be aware that your target prediction will be clipped based on the y range that the model has seen in training.
+
+For instance, suppose that the train_y range is (100, 1000), but the test_y range is (300, 1500). 
+The model will never predict a value beyond 1,000!
+
+⭐ If you suspect the y-range to be unbounded, consider choosing a linear model such as OLS, Lasso, or dense neural networks.
+<br/>
+<br/>
+(𝟯) 𝗨𝘀𝗲 𝗦𝗶𝗺𝗽𝘀𝗼𝗻'𝘀 𝗣𝗮𝗿𝗮𝗱𝗼𝘅 𝘁𝗼 𝗶𝗺𝗽𝗿𝗼𝘃𝗲 𝘆𝗼𝘂𝗿 𝗺𝗼𝗱𝗲𝗹
+<br/>
+❗If your model is underperforming the benchmark, don't just add more signals and/or parameters to search in hyperparameter tuning. Do EDA on the residuals of the model. For instance, the global accuracy of your model might be 0.85%, but when you segment it by cohorts (e.g. gender, age, product category), your model might perform better or worse based on cohorts.
+
+⭐ For the segments that the model is underperforming, conduct EDA to see if there are additional signals you can add to improve it.
+
+This is the depth of ML knowledge that you should consider in practice and for data science interviews.
+
+If you are a candidate preparing for data science and MLE interviews, check out
+
+--
+<br/>
+<br/>
+👋 Connect with me as I share daily insights and stories about entrepreneurship, data science, and interview prep.
+<br/>
+<br/>
+🚀 follow me more in linkedin for interview preparations and projects in web development.
+
+    </p>
+    {% endblock content %}    
+
+    
