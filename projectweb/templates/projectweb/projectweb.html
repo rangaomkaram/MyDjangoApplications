@@ -1,7 +1,29 @@
 {% extends 'main.html' %}
 
+{% block content %}
+     <h1>Projects</h1>
+     <table>
+         <thead>
+             <tr>
+                 <th>ID</th>
+                 <th>Title</th>
+                 <th>Description</th>
+             </tr>
+         </thead>
+         <tbody>
+             {% for project in projects %}
+             <tr>
+                <td>{{project.id}}</td>
+                <td>{{project.Project_Name}} {% if project.TopRated %} <strong>TOP RATED </strong>
+                    {% endif %}
 
-     {% block content %}
+                </td>
+                <td>{{project.Description}}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+     </table>
+
     <h1> Project Django to render</h1>
     <h1>Django Learning</h1>
     <p> 
