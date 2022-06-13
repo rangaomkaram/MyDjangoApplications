@@ -1,4 +1,5 @@
 from hashlib import blake2s
+from pickle import TRUE
 from turtle import title
 from django.db import models
 import uuid
@@ -14,6 +15,7 @@ class Project(models.Model):
     vote_total = models.IntegerField(default=0)
     vote_ratio = models.IntegerField(default=0)
     created    = models.DateTimeField(auto_now_add=True)
+    #updated   = models.DateTimeField(auto_now=True)
     id         = models.UUIDField(default=uuid.uuid4,
                                   unique= True,primary_key=True,editable=False)
 
@@ -21,6 +23,26 @@ class Project(models.Model):
     
     def __str__(self):
         return self.Project_Name
+
+class Review(models.Model):
+
+    VOTE_TYPE = (
+        ('up','up'),
+        ('down','down')
+        )
+
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,
+                                  null=True,blank=True)
+    body    = models.TextField(null=True,blank=True)
+    value   = models.CharField(max_length=60,choices=VOTE_TYPE)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+    id      = models.UUIDField(default=uuid.uuid4,unique=True,
+                                primary_key=True,editable=False)
+
+    def __str__(self):
+        return self.value
+
 
 
 
