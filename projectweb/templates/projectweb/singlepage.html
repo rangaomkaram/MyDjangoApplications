@@ -1,22 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single-web app</title>
-</head>
-<body>
-    {% extends 'main.html' %}
-    {% block content %}
-    <h1>Single Page html thing </h1>
-    <h1>{{project.Project_Name}}</h1>
-    <p>{{project.Description}}</p>
-    <p>
+{% extends 'main.html' %}
 
-        building a single web app using Django 
-    </p>
+{% block content %}
+<h1>{{project.Project_Name}}</h1>
+
+{% for tag in project.tags.all %}
+
+<span style = "border: 1px solid #888; padding: 1em;">{{tag}}</span>
+{% endfor %}
+
+<hr>
+
+<p>{{project.Description}}</p>
+    
+<hr>
+
+<h3>Reviews:</h3>
+
+{% for review in project.review_set.all %}
+<p>{{review.body}}</p>
+<p>{{review.value}}</p>
+<p>{{review.created}}</p>
+
+{% endfor %}
+
+<p>building a single web app using Django </p>
     {% endblock content %}
-</body>
-</html>
+
+
 

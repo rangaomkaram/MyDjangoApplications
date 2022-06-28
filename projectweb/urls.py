@@ -1,8 +1,11 @@
 from django.urls import path
 from .import views
 urlpatterns = [
-            path('',views.Projects),
-            path('Project/<str:pk>',views.Project),
-            path('englishpage/',views.englishpage),
+            path('',views.projects,name="projects"),
+            path('Project/<str:pk>',views.project,name="project"),
+            path('englishpage/',views.englishpage,name="englishpage"),
+            path ('create-project/',views.createProject,name="create-project"),
+            path ('update-project/<str:pk>',views.updateProject,name="update-project"),
+            path('delete-project/<str:pk>',views.deleteProject,name="delete-project"),
 
 ]
